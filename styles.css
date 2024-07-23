@@ -48,7 +48,7 @@
   
 .parallax {
   /* The image used */
-  background-image: url("myHondaInTheGarden.jpg");
+  background-image: url("/Images/myHondaInTheGarden.jpg");
 
   /* Set a specific height */
   min-height: 500px;
@@ -62,7 +62,7 @@
 
 .parallax2 {
   /* The image used */
-  background-image: url("codingScreenshot.png");
+  background-image: url("/Images/codingScreenshot.png");
 
   /* Set a specific height */
   min-height: 500px;
@@ -158,4 +158,22 @@ footer {
   padding: 10px;
   text-align: center;
   color: white;
+}
+
+
+
+/* for containing the car text*/
+.div1 {
+  width: 300px;
+  height: 300px;
+  color: white;
+  border: 1px solid blue;
+}
+
+/* for containing the car text*/
+.div2 {
+  width: 300px;
+  height: 300px;
+  color: white;
+  border: 1px solid rgb(255, 0, 0);
 }
