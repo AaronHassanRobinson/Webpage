@@ -1,0 +1,16 @@
+/* need to work on this */
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+  }
+  
+  .mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    gap: 10px 20px; /* row-gap column gap */
+    row-gap: 10px;
+    column-gap: 20px;
+    perspective: 40px;
+  }
