@@ -1,23 +1,25 @@
 console.log("scripts loaded!")
 
 
+
+
+// ---------------------------------------------------------------------//
+// Scripts for the cursor facing cards on the my studies page: 
+
 var container = document.getElementById('mainContainer');
-var inner = document.getElementById('card');
+var card = document.getElementsByClassName('card');
         
 var onMouseEnterHandler = function(event) {
   update(event);
 };
 var onMouseLeaveHandler = function() {
-  inner.style = "";
+  card.style = "";
 };
 var onMouseMoveHandler = function(event) {
   if (isTimeToUpdate()) {
     update(event);
   }
 };
-
-
-
 
 container.onmouseenter = onMouseEnterHandler;
 container.onmouseleave = onMouseLeaveHandler;
@@ -32,7 +34,7 @@ var isTimeToUpdate = function() {
 
 // Init
 var container = document.getElementById('mainContainer');
-var innerElements = document.getElementsByClassName('card');
+var cardElements = document.getElementsByClassName('card');
 // Mouse 
 var mouse = {
   _x: 0,
@@ -50,34 +52,37 @@ var mouse = {
   },
   show: function() { return '(' + this.x + ', ' + this.y + ')'; }
 }
+
 // Track the mouse position relative to the center of the container.
 mouse.setOrigin(container);
+//for( var i = 0; i< cardElements.length; i++) {
+  //console.log("mouse centre @",i, "= ", mouse)
+
+//}
 
 
 var update = function(event) {
+  for(var i = 0; i < cardElements.length; i++) {
   mouse.updatePosition(event);
-
-  for(var i = 0; i < innerElements.length; i++) {
+    console.log("i= ", i, "mouse pos =", mouse)
     updateTransformStyle(
-      (mouse.y / innerElements[i].offsetHeight/2).toFixed(2),
-      (mouse.x / innerElements[i].offsetWidth/2).toFixed(2)
+      (mouse.y / cardElements[i].offsetHeight).toFixed(2),
+      (mouse.x / cardElements[i].offsetWidth).toFixed(2)
     );
-  
-  
   }
-
 };
 
 var updateTransformStyle = function(x, y) {
-  var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+  var style = "rotateX(" + x/8 + "deg) rotateY(" + y/8 + "deg)";
   //console.log(x,y)
 
-  for(var i = 0; i < innerElements.length; i++) {
-    innerElements[i].style.transform = style;
-    innerElements[i].style.webkitTransform = style;
-    innerElements[i].style.mozTransform = style;
-    innerElements[i].style.msTransform = style;
-    innerElements[i].style.oTransform = style;
-}
-
+  for(var i = 0; i < cardElements.length; i++) {
+    cardElements[i].style.transform = style;
+    cardElements[i].style.webkitTransform = style;
+    cardElements[i].style.mozTransform = style;
+    cardElements[i].style.msTransform = style;
+    cardElements[i].style.oTransform = style;
+  }
 };
+
+// ---------------------------------------------------------------------//
